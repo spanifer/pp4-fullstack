@@ -73,6 +73,17 @@ DESCRIPTION
 
 ### Further Testing
 
+### Found Bugs
+
+- While deploying early to heroku: 
+    1. Build failed:
+        -   `git push heroku main` failed when running `python manage.py collectstatic --noinput` with *No such file or directory: '/tmp/build_643c5311/static'*    
+        -   caused by Git not storing empty directories, and heroku does not automatically create the target directory that `collectstatic` uses. Solution found on [heroku documentation](https://devcenter.heroku.com/articles/django-assets)
+        -   solution was to include a dummy file to make git create the folder. After that the heroku build process passed, and the deployment was a success. 
+    1. Static files missing:
+        -   self hosted static files are not supported on heroku, as stated [in the documentation](https://devcenter.heroku.com/articles/django-assets#whitenoise)
+        -   the documentation draws attention to a project called [whitenoise](http://whitenoise.evans.io/en/stable/) that can integrate into Django applications, and were designed for this purpose. This solution been chosen for early deployment and testing.
+
 ### Known Bugs
 
 -   ?

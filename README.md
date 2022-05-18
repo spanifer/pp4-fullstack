@@ -88,6 +88,10 @@ DESCRIPTION
 
 -   ?
 
+### Other mentions
+
+-   for deployment found information on [heroku documentation](https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-slugignore) about `.slugignore`. Files and folders can be named in this file that are not required for deployment.
+
 ## Deployment
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
 

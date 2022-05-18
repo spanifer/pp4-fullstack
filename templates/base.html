@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Pro Agents - Welcome</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Pro Agents</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                </ul>
+                <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <ul id="slide-out" class="sidenav">
+            <!-- <li><div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+            </div></li> -->
+            <li><a href="{% url 'home' %}"><i class="material-icons">house</i>Home</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+          </ul>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>

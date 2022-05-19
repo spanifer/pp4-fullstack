@@ -40,19 +40,58 @@
     line-height: normal;
 }
 
+/* ---------- Rent Info */
+
+#rent-intro {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: xx-large;
+    padding: 2rem 0;
+}
+
+#rent-intro > div {
+    margin: 2rem 0;
+}
+
+#rent-intro > div > div {
+    padding: 1rem 0;
+}
+
+#rent-intro > div > div:not(.arrow) > i {
+    font-size: 150%;
+}
 
 /* ---------- Media Queries */
 
+/* ---------- Medium */
+@media screen and (min-width: 601px) {
+
+    /* ---------- Rent Info */
+    
+    .arrow {
+        transform: rotate(-30deg);
+    }
+}
+
+/* ---------- Large */
 @media screen and (min-width: 992px) {
+    
     /* ---------- Nav */
+    
     nav > .nav-wrapper > .brand-logo.center {
         left: initial;
         transform: initial;
     }
-
+    
     nav > .nav-wrapper > #nav-mobile {
         position: absolute;
         left: 50%;
         transform: translate(-50%);
+    }
+
+    /* ---------- Rent Info */
+    .arrow {
+        transform: rotate(-90deg);
+        line-height: 100%;
     }
 }

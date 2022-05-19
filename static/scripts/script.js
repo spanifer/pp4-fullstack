@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(sidenav);
 
   document.getElementById('rent-intro-toggle').addEventListener('click', toggleRentIntro);
-
 });
 
 function toggleRentIntro() {

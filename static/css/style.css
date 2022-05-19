@@ -61,6 +61,17 @@
     font-size: 150%;
 }
 
+/* ---------- About */
+
+#map {
+    padding: 2rem 0;
+}
+
+#map > iframe {
+    height: 50vh;
+    width: 100%;
+}
+
 /* ---------- Media Queries */
 
 /* ---------- Medium */

@@ -16,7 +16,7 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Pro Agents</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul id="nav-mobile" class="hide-on-med-and-down">
                     <li><a href="{% url 'home' %}">Home</a></li>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
@@ -35,8 +35,10 @@
             <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
           </ul>
     </header>
+    <main>
     {% block content %}
     {% endblock %}
+    </main>
     <footer>
 
     </footer>

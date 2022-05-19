@@ -1,0 +1,39 @@
+/* ---------- Nav */
+
+/* ---------- Hero img and content */
+
+.default-bg-img {
+    background: url(https://images.unsplash.com/photo-1516139008210-96e45dccd83b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880);
+    background-size: cover;
+    background-position: center;
+    background-position-y: bottom;
+}
+
+.hero {
+    width: 100%;
+    height: calc(80vh - 25px);
+}
+
+.hero-body {
+    margin: auto;
+}
+
+.hero h2 {
+    margin-top: 0;
+}
+
+/* ---------- Media Queries */
+
+@media screen and (min-width: 992px) {
+    /* ---------- Nav */
+    nav > .nav-wrapper > .brand-logo.center {
+        left: initial;
+        transform: initial;
+    }
+
+    nav > .nav-wrapper > #nav-mobile {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}

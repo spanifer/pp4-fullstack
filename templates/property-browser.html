@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="properties">
+    <div class="container">
+        <div class="row">
+            {% for property in properties %}
+            <div class="col s12 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ property.main_img.url }}">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="black-text">
+                            {{ property.name }}
+                        </h4>
+                        <p>
+                            {{ property.description }}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">
+                            Book a viewing
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

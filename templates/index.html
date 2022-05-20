@@ -8,9 +8,9 @@
             <h2>
                 {{ hero_title }}
             </h2>
-            <button class="btn-large">
-                Browse Properties
-            </button>
+            <a href="{% url 'properties' %}">
+                <button class="btn-large">Browse Properties</button>
+            </a>
         </div>
     </div>
 </section>
@@ -72,9 +72,9 @@
     </div>
     <div class="row">
         <div class="col s12 center">
-            <button class="btn">
-                Browse Properties
-            </button>
+            <a href="{% url 'properties' %}">
+                <button class="btn">Browse Properties</button>
+            </a>
         </div>
     </div>
 </section>

@@ -7,6 +7,7 @@
     background-size: cover;
     background-position: center;
     background-position-y: bottom;
+    width: 100%;
 }
 
 .hero {
@@ -70,6 +71,13 @@
 #map > iframe {
     height: 50vh;
     width: 100%;
+}
+
+/* ---------- Property Browser */
+
+.card .card-image img {
+    height: 40vh;
+    object-fit: cover;
 }
 
 /* ---------- Media Queries */

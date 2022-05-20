@@ -1,20 +1,20 @@
 import imp
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
 from .models import Properties
 
-def home(request):
-    context = {
-        'hero_title': 'Find the best properties to rent in the area',
-    }
-    return render(request, 'index.html', context)
-
-
-class PropertyBrowser(View):
-
-    def get(self, request, *args, **kwargs):
-        properties = Properties.objects.filter(is_published=True)
+class Home(View):
+    def get(self, request):
         context = {
-            'properties': properties,
+            'hero_title': 'Find the best properties to rent in the area',
         }
-        return render(request, 'property-browser.html', context=context)
+        return render(request, 'index.html', context)
+
+
+class PropertyBrowser(ListView):
+    model = Properties
+    queryset = model.objects.filter(is_published=True).order_by('-list_date')
+    template_name = 'property-browser.html'
+    context_object_name = 'properties'
+    paginate_by = 3

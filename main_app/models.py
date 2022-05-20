@@ -7,7 +7,7 @@ class Properties(models.Model):
     description = models.TextField()
     price = models.IntegerField(validators=[MinValueValidator(0)])
     address = models.CharField(max_length=200)
-    main_img = CloudinaryField('image')
+    main_img = CloudinaryField('image', blank = True)
     list_date = models.DateTimeField(auto_now_add=True)
     available = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)

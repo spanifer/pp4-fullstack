@@ -2,31 +2,30 @@
 {% block content %}
 
 <section id="properties">
-    <div class="container">
-        <div class="row">
-            {% for property in properties %}
-            <div class="col s12 l4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{ property.main_img.url }}">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="black-text">
-                            {{ property.name }}
-                        </h4>
-                        <p>
-                            {{ property.description }}
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">
-                            Book a viewing
-                        </a>
-                    </div>
+    <div class="row">
+        {% for property in properties %}
+        <div class="property-card col s12 m10 offset-m1 l4">
+            <div class="card">
+                <div class="card-image default-bg-img">
+                    <img src="{{ property.main_img.url }}">
+                </div>
+                <div class="card-content">
+                    <h4 class="black-text">
+                        {{ property.name }}
+                    </h4>
+                    <p class="truncate">
+                        {{ property.description }}
+                    </p>
+                    <p>Listed on {{ property.list_date|date:"M d, Y"}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">
+                        Book a viewing
+                    </a>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
 </section>
 

@@ -80,6 +80,15 @@
     object-fit: cover;
 }
 
+#pagination {
+    background-color: unset;
+}
+
+#pagination > ul {
+    display: inline-block;
+    text-align: center;
+}
+
 /* ---------- Media Queries */
 
 /* ---------- Medium */

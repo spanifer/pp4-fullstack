@@ -29,4 +29,26 @@
     </div>
 </section>
 
+<nav id="pagination" class="center">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+        {% else %}
+        <li><i class="material-icons grey-text">chevron_left</i></li>
+        {% endif %}
+        {% for page in paginator.page_range %}
+            {% if page == paginator.current_page %}
+            <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+            {% else %}
+            <li ><a href="?page={{ page }}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+        {% else %}
+        <li><i class="material-icons">chevron_right</i></li>
+        {% endif %}
+    </ul>
+</nav>
+
 {% endblock %}

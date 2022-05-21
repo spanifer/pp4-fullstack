@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="container">
+    <img src="{{ property.main_img.url }}" style="width:100%">
+    Fill out the form to request a viewing for {{ property }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-large">
+            <i class="fas fa-eye"></i>
+            Request viewing
+        </button>
+    </form>
+</section>
+
+{% endblock %}

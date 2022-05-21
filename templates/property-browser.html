@@ -19,7 +19,7 @@
                     <p>Listed on {{ property.list_date|date:"M d, Y"}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">
+                    <a href="{% url 'viewing' property.pk %}">
                         Book a viewing
                     </a>
                 </div>

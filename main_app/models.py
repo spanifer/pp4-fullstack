@@ -17,3 +17,19 @@ class Properties(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ViewingRequest(models.Model):
+    fullname = models.CharField(max_length=100)
+    phone = models.CharField(max_length=14)
+    email = models.EmailField(blank=True, null=True)
+    message = models.TextField()
+    property = models.ForeignKey(Properties, on_delete=models.SET_NULL, null=True)
+    request_date = models.DateTimeField(auto_now_add=True)
+    aranged_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        ordering = ['-request_date']
+
+    def __str__(self):
+        return self.fullname

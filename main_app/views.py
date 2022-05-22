@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView, FormView
-from .models import Properties, ViewingRequest
+from django.views.generic import ListView
+from .models import Properties
 from .forms import ViewingRequestForm
 
 class Home(View):
@@ -20,27 +20,30 @@ class PropertyBrowser(ListView):
     paginate_by = 3
 
 
-class Viewing(FormView):
-    model = ViewingRequest
-    form_class = ViewingRequestForm
-    template_name = 'viewing-request.html'
+class Viewing(View):
     success_url = '/'
+    template_name = 'viewing-request.html'
+    
+    def get(self, request, propery_id, *args, **kwargs):
+        form = ViewingRequestForm()
+        property = Properties.objects.get(id=propery_id)
+        context = {
+            'property': property,
+            'form': form,
+        }
 
-    # Solution to include the property_id in the form context
-    # https://stackoverflow.com/questions/8903601/how-to-process-a-form-via-get-or-post-using-class-based-views
-    def get(self, request, *args, **kwargs):
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        context = self.get_context_data(**kwargs)
-        context['form'] = form
-        context['property'] = Properties.objects.get(id=kwargs['propery_id'])
-        return self.render_to_response(context)
+        return render(request, self.template_name, context)
 
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+    def post(self, request, propery_id, *args, **kwargs):
+        form = ViewingRequestForm(request.POST)
 
-    def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
+        # Solution to include the property foreign key in the form
+        # https://stackoverflow.com/questions/17126983/add-data-to-modelform-object-before-saving
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.property = Properties.objects.get(id=propery_id)
+            obj.save()
+            return render(request, self.success_url)
+
+
     

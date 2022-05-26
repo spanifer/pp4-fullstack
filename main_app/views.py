@@ -1,11 +1,9 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView
-from django.contrib import messages
-from django.contrib.auth.views import LoginView
 from .models import Properties
-from .forms import ViewingRequestForm, UserRegisterForm, UserProfileForm, LoginForm
+from .forms import ViewingRequestForm
+
 
 class Home(View):
     def get(self, request):
@@ -13,42 +11,6 @@ class Home(View):
             'hero_title': 'Find the best properties to rent in the area',
         }
         return render(request, 'index.html', context)
-
-
-class Login(LoginView):
-    form_class = LoginForm
-    template_name = 'login.html'
-
-
-class Register(View):
-
-    success_message = 'You have successfully registered'
-
-    def get(self, request):
-        r_form = UserRegisterForm()
-        p_form = UserProfileForm()
-        context = {
-            'register_form': r_form,
-            'profile_form': p_form,
-        }
-        return render(request, 'register.html', context)
-
-    def post(self, request):
-        r_form = UserRegisterForm(request.POST)
-        p_form = UserProfileForm(request.POST)
-        if r_form.is_valid() and p_form.is_valid():
-            r_form.save()
-            obj = p_form.save(commit=False)
-            obj.user = r_form.instance
-            obj.save()
-            messages.success(request, self.success_message)
-            return redirect(reverse('login'))
-        else:
-            context = {
-                'register_form': r_form,
-                'profile_form': p_form,
-            }
-            return render(request, 'register.html', context)
 
 
 class PropertyBrowser(ListView):

@@ -3,12 +3,28 @@
   // Hover to view descriptions of existing attributes.
   "version": "0.2.0",
   "configurations": [
-      {
-            "name": "Python: Current File (Integrated Terminal)",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "internalConsole"
-        }
+    {
+      "name": "Python: Current File (Integrated Terminal)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "internalConsole"
+    },
+    {
+      "name": "Python: Django",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/manage.py",
+      "args": [
+          "runserver",
+          "--noreload",
+          "--nothreading"
+      ],
+      "django": true,
+      "justMyCode": false,
+      "comments": {
+        "settingsSource": "https://stackoverflow.com/questions/40937544/how-to-use-visual-studio-code-to-debug-django"
+      }
+    }
   ]
-}
+  }

@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.views import View
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from .forms import UserRegisterForm, UserProfileForm, LoginForm
+from django.contrib.messages.views import SuccessMessageMixin
+from .forms import UserRegisterForm, UserProfileForm
 
 
 def test_user_logged_in(func):
@@ -18,7 +19,7 @@ def test_user_logged_in(func):
 
 
 class Login(LoginView):
-    form_class = LoginForm
+    success_message = 'You are logged in'
 
     @test_user_logged_in
     def get(self, *args, **kwargs):
@@ -26,7 +27,7 @@ class Login(LoginView):
 
     @test_user_logged_in
     def post(self, *args, **kwargs):
-        return super().get(*args, **kwargs)
+        return super().post(*args, **kwargs)
 
 
 class Register(View):

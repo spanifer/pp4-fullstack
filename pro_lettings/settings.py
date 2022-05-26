@@ -32,6 +32,8 @@ DEBUG = DEV_ENABLED
 ALLOWED_HOSTS = ['pro-letting.herokuapp.com', 'localhost']
 
 
+LOGIN_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [

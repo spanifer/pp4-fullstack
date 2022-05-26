@@ -4,9 +4,6 @@
 
     <section class="container">
         <form method="POST">
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
             {% csrf_token %}
             {{ form }}
             <button type="submit" class="btn">

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        {{ profile_form }}
+        <button type="submit" class="btn">
+            Register User Account
+        </button>
+    </form>
+</section>
+    
+{% endblock %}

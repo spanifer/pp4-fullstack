@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="container">
+        <form method="POST">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+    </section>
+
+{% endblock %}

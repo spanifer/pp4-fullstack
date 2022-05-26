@@ -18,7 +18,7 @@ def test_user_logged_in(func):
     return wrapper
 
 
-class Login(LoginView):
+class Login(SuccessMessageMixin, LoginView):
     success_message = 'You are logged in'
 
     @test_user_logged_in

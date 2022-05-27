@@ -19,34 +19,130 @@ DESCRIPTION
 
 ## Design Process
 
--   ### Roadmap
-
 -   ### Application Aim
+    The site aims to be the main bridge between the client and the agency.
+
+    From the agency standpoint, it mainly helps the agency's work by alleviating the manual creation of customer data and scheduling meetings according to staff availability.
+
+    Customers looking to rent or to let provide valuable information on the services offered. Each client must register to have access to the site features, and for ease of access, registrations are built-in while requesting an appointment.
+
+    Customers looking to rent a property can browse through the available properties. In addition, each booked appointment for a property is available in the client's dashboard, where they can book, amend, or cancel a meeting.
 
 -   ### Opportunities
 
--   ### Implementation Priorities
+Opportunity | Importance | Viability/Feasibility
+---|---|---
+Landing Page | 5 | 5
+Property browser | 5 | 4
+Detailed property View | 3 | 5
+Request viewing | 5 | 5
+Show available time-slots for viewings | 4 | 3
+Register account | 5 | 4
+Personal collection board | 4 | 3
+Offer registration while/after booking a viewing | 3 | 4
+Receive 'notifications' by email option | 2 | 3
+Property owner specific page | 5 | 5
+Property owner request appointment | 5 | 5
+Property owner registration | 2 | 3
+Property owner dashboard | 2 | 2
+Manager/employee dashboard | 5 | 4
+Respond to viewing/appointment request form | 3 | 3
+Managers employee overview dashboard | 3 | 2
+Employee appointment schedule calendar | 4 | 2
+Add notes to clients | 4 | 3
+Search by location | 4 | 1
+Zoopla API integration | 1 | 1
+Other unrealized services to mention | ? | ?
+**Total** | 68 | 66
 
--   ### User Stories
+-   ### Scope
+    Project divided to Sprints where each aims for a MVP:
+    1. Sprint:
+        -   create the properties model
+        -   create the employees model
+        -   the landing page  with minimal content, the site heading with navigation, default css framework design, and navigation to the following pages:
+            -   property browser page
+            -   property owner page
+        -   request property viewing for tenants
+        -   account registration
+        -   user dashboard
+        -   manager/employee admin access
+        -   property owner page and contact form
+        -   tests
+
+    2. Sprint:
+        -   personalize ui design
+        -   detailed property view
+        -   browse order-by price low-to-high and vicev
+        -   amend and cancel viewing
+        -   employee appointment schedule
+            -   show available time-slots when booking a viewing
+            -   employee login
+        -   personal collection board
 
 -   ### Agile Approach
+    -   #### Epics & Tasks:
+        1.  Base template:
+            -   Navigation
+            -   Footer
+        1.  Landing page:
+            -   Hero img and quick access the browse properties
+            -   Welcome, detailed navigation buttons
+            -   About and contact details
+            -   Renting flow diagram - fetch block to lazy load this content?
+        1.  Property browser page:
+            -   display the available properties
+            -   book viewing button (and request further info on property for *this Sprint*)
+            -   property-picture, price and details card
+        1.  Authentication and user registration:
+            -   Login
+            -   Register
+            -   Register while placing a booking
+        1.   Property owner page:
+            -   book an appointment
+            -   B2B info
+            -   freedom theme paralax picrure
+            -   informative list of discussion details
+    
+-   ### User Stories
+    -   New user:
+        -   As a **new user** I can **arrive on the site** so that **I can have quick access to the main features and comprehensive details of usage**
+        -   As a **new user** I can **go through the list of available properties** so that **I can look for a suitable property with details to rent**
+        -   As a **new user** I can **contact the agency by filling out a form with my details** so that **I can request a viewing on a selected property**
+        -   As a **new user** I can **create an account or login with an existing one** so that **I can book appointments and review previous bookings**
+    -   Registered user:
+        -
+
+    -   User stories dropped:
+        -   As a **new user** I can **register an account with my details required to book an appointment** so that **I can request a booking without needing to register beforehand**
 
 -   ### Flowchart
 
-![](readme/diagrams/)
+![](docs/diagrams/)
 
 -   ### Wireframes
 
-![](readme/wireframes/)
+    [Landing page](docs/wireframes/Home.small.png):
+
+    ![](docs/wireframes/Home.extra-s.png)
+
+    [Property browser](docs/wireframes/PropertyBrowser.small.png):
+
+    ![](docs/wireframes/Home.extra-s.png)
 
 -   ### Data Model
 
--   ### Surface 
+    ![](docs/diagrams/db-schema.svg)
 
-![](readme/diagrams/)
+-   ### Surface
+
+![](docs/diagrams/)
 
 ## Features
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
+
+### Future Features
+
 
 ## Technologies Used
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
@@ -60,9 +156,9 @@ DESCRIPTION
 1. [Git](https://git-scm.com/)
 1. [GitHub](https://github.com/)
 1. [Django](https://www.djangoproject.com/)
-1. [Jinja](https://jinja.palletsprojects.com/en/3.0.x/intro/) templating engine
 1. [Materialize Css](https://materializecss.com/)
 1. [draw.io](https://www.diagrams.net/)
+1. [PostgreSQL](https://www.postgresql.org/)
 
 ## Testing
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
@@ -76,44 +172,47 @@ DESCRIPTION
 
 ### Further Testing
 
-### Found Bugs
+### Known Bugs
+
+-   message on logout not sent / received
 
 ### Other mentions
 
--   for deployment, found information on [heroku documentation](https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-slugignore) about `.slugignore`. Files and folders can be listed in this file that are not required for deployment, similar to `.gitignore`
-
-### Known Bugs
-
--   ?
-
+-   for deployment, found information on [heroku documentation](https://devcenter.heroku.com/articles/slug-compiler#ignoring-files-with-slugignore) about `.slugignore`. Files and folders can be listed in this file that are not required for deployment, similar to `.gitignore` structure
 
 ## Deployment
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
 
-The project was deployed using Code Institute's mock terminal for Heroku.
+The project was deployed on Heroku:
 
 -   Steps for deployment:
     -   Fork or clone this repository
     -   Create a new Heroku app
+    -   In the overview add Postgres add-on
     -   In the app settings:
-        -   Add a config var of `PORT`:`8000`
-        -   Set the buildpacks to `Python` and `NodeJS` in that order
-    -   Link the Heroku app to the forked repository
-    -   Manually **Deploy**
+        -   Set the buildpacks to `Python`
+        -   Add the following config:
+            -   `PORT`:`8000`
+            -   `DEVELOPMENT`:`FALSE` - **IMPORTANT**! This also turns DEBUG OFF
+            -   `SECRET_KEY`:`_replace_with_secret`
+    -   Add `env.py` file to project directory
+        -   Set `os.environ.setdefault("DEVELOPMENT", "True")`
+    -   In the django project setting:
+        -   Add the heroku project url to `ALLOWED_HOSTS` list
+        -   Populate the `env.py` with each `os.environ.get` field from the settings
+    -   Run `python3 manage.py migrate`
+    -   Using the Heroku CLI login with heroku user following the prompt of `heroku login -i`
+    -   `git push heroku main` to heroku
+
+-   Static and media files served from Cloudinary.
 
 ### Making a Local Clone
-
-> *Review* to make the whole project locally deployable
-Requires Python 3 installed in local environment, to run the game in a terminal
-
--   Fork or clone this repository
--   Navigate to folder in a terminal
--   Run the following command `python3 manage.py runserver`
 
 ## Credits
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
 
 ### Code
+- ~~to enable user authentication with email address instead of username I have followed [this article](https://www.fomfus.com/articles/how-to-use-email-as-username-for-django-authentication-removing-the-username/)~~
 
 ### Acknowledgements
 

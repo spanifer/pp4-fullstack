@@ -25,23 +25,23 @@ class Viewing(View):
     success_url = '/'
     template_name = 'viewing-request.html'
 
-    def get(self, request, propery_id, *args, **kwargs):
+    def get(self, request, property_id, *args, **kwargs):
         form = ViewingRequestForm()
-        property = Properties.objects.get(id=propery_id)
+        _property = Properties.objects.get(id=property_id)
         context = {
-            'property': property,
+            'property': _property,
             'form': form,
         }
 
         return render(request, self.template_name, context)
 
-    def post(self, request, propery_id, *args, **kwargs):
+    def post(self, request, property_id, *args, **kwargs):
         form = ViewingRequestForm(request.POST)
 
         # Solution to include the property foreign key in the form
         # https://stackoverflow.com/questions/17126983/add-data-to-modelform-object-before-saving
         if form.is_valid():
             obj = form.save(commit=False)
-            obj.property = Properties.objects.get(id=propery_id)
+            obj.property = Properties.objects.get(id=property_id)
             obj.save()
             return render(request, self.success_url)

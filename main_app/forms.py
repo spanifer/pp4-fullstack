@@ -7,13 +7,14 @@ from .models import ViewingRequest, UserProfile
 class ViewingRequestForm(forms.ModelForm):
     class Meta:
         model = ViewingRequest
-        fields = ('fullname', 'phone', 'email', 'message')
+        fields = ('message',)
 
 
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'email', 'first_name', 'last_name']
+        fields = ['username', 'password1', 'password2', 'email', 'first_name',
+                  'last_name']
 
 
 class UserProfileForm(forms.ModelForm):

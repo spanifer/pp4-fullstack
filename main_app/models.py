@@ -17,7 +17,7 @@ class Properties(models.Model):
     description = models.TextField()
     price = models.IntegerField(validators=[MinValueValidator(0)])
     address = models.CharField(max_length=200)
-    main_img = CloudinaryField('image', blank = True)
+    main_img = CloudinaryField('image', blank=True)
     list_date = models.DateTimeField(auto_now_add=True)
     available = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)
@@ -30,16 +30,15 @@ class Properties(models.Model):
 
 
 class ViewingRequest(models.Model):
-    fullname = models.CharField(max_length=100)
-    phone = models.CharField(max_length=14)
-    email = models.EmailField(blank=True, null=True)
     message = models.TextField()
-    property = models.ForeignKey(Properties, on_delete=models.SET_NULL, null=True)
+    property = models.ForeignKey(Properties, on_delete=models.SET_NULL,
+                                 null=True)
     request_date = models.DateTimeField(auto_now_add=True)
-    aranged_date = models.DateTimeField(blank=True, null=True)
+    arranged_date = models.DateTimeField(blank=True, null=True)
+    for_user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-request_date']
 
     def __str__(self):
-        return self.fullname
+        return f'{self.for_user.first_name} {self.for_user.last_name}'

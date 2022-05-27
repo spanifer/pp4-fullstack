@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import UserRegisterForm, UserProfileForm
@@ -28,6 +28,10 @@ class Login(SuccessMessageMixin, LoginView):
     @test_user_logged_in
     def post(self, *args, **kwargs):
         return super().post(*args, **kwargs)
+
+
+class Logout(SuccessMessageMixin, LogoutView):
+    success_message = 'You are logged out'
 
 
 class Register(View):

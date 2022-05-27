@@ -22,9 +22,29 @@
                     <li><a href="{% url 'properties' %}">To Rent</a></li>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
+                <ul class="float-right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" class="float-right hide-on-med-and-down">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+                </ul>
             </div>
         </nav>
         <ul id="slide-out" class="sidenav">
+            {% if user.is_authenticated %}
+                <li>
+                    <div class="user-view">
+                        <i class="fas fa-user"></i>
+                        <span>{{ user.username }}</span>
+                    </div>
+                </li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
             <li><a href="{% url 'home' %}">Home page</a></li>
             <li><a href="{% url 'properties' %}">To Rent</a></li>
         </ul>

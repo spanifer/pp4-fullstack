@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['pro-letting.herokuapp.com', 'localhost']
 
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 

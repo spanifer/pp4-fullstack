@@ -183,30 +183,28 @@ Other unrealized services to mention | ? | ?
 ## Deployment
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
 
-The project was deployed on Heroku:
+The project was deployed on [Heroku](https://www.heroku.com/) and static and media files served from [Cloudinary](https://cloudinary.com/).
 
 -   Steps for deployment:
     -   Fork or clone this repository
     -   Create a new Heroku app
-    -   In the overview add Postgres add-on
+    -   Create a Cloudinary account and from the dashboard copy the *API Environment variable*
+    -   In the dashboard overview add Postgres add-on
     -   In the app settings:
         -   Set the buildpacks to `Python`
-        -   Add the following config:
+        -   Add the following configs:
             -   `PORT`:`8000`
-            -   `DEVELOPMENT`:`FALSE` - **IMPORTANT**! This also turns DEBUG OFF
+            -   `DEVELOPMENT`:`False` - **IMPORTANT**! This also turns DEBUG OFF
             -   `SECRET_KEY`:`_replace_with_secret`
-    -   Add `env.py` file to project directory
-        -   Set `os.environ.setdefault("DEVELOPMENT", "True")`
+            -   `CLOUDINARY_URL`:`_replace_with_copied_cloudinary_url`
+    -   Rename `env.template.py` file to `env.py` file in project directory
+        -   Replace each value with the corresponding Heroku config vars
+        -   Set `os.environ.setdefault("DEVELOPMENT", "False")`
     -   In the django project setting:
         -   Add the heroku project url to `ALLOWED_HOSTS` list
-        -   Populate the `env.py` with each `os.environ.get` field from the settings
     -   Run `python3 manage.py migrate`
-    -   Using the Heroku CLI login with heroku user following the prompt of `heroku login -i`
-    -   `git push heroku main` to heroku
-
--   Static and media files served from Cloudinary.
-
-### Making a Local Clone
+    -   Using the Heroku CLI, login with heroku user following the prompt of `heroku login -i`
+    -   Run `git push heroku main`
 
 ## Credits
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>

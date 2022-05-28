@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const sidenav = document.querySelectorAll('.sidenav');
   M.Sidenav.init(sidenav);
 
-  document.getElementById('rent-intro-toggle').addEventListener('click', toggleRentIntro);
+  const rentIntro = document.getElementById('rent-intro-toggle')
+  if (rentIntro) rentIntro.addEventListener('click', toggleRentIntro);
 });
 
 function toggleRentIntro() {

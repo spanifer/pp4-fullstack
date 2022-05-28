@@ -1,8 +1,6 @@
-<h1 align="center">PROJECT NAME</h1>
+<h1 align="center">Pro Lettings</h1>
 
-[View the live project here.]()
-
-DESCRIPTION
+[View the live project here.](https://pro-letting.herokuapp.com/)
 
 ![Responsive Design from http://ami.responsivedesign.is/]()
 
@@ -24,7 +22,7 @@ DESCRIPTION
 
     From the agency standpoint, it mainly helps the agency's work by alleviating the manual creation of customer data and scheduling meetings according to staff availability.
 
-    Customers looking to rent or to let provide valuable information on the services offered. Each client must register to have access to the site features, and for ease of access, registrations are built-in while requesting an appointment.
+    Customers looking to rent or to let are provided with valuable information on the services offered. Each client must register to have access to the site features, and for ease of access, registrations are built-in while requesting an appointment.
 
     Customers looking to rent a property can browse through the available properties. In addition, each booked appointment for a property is available in the client's dashboard, where they can book, amend, or cancel a meeting.
 
@@ -56,7 +54,7 @@ Other unrealized services to mention | ? | ?
 **Total** | 68 | 66
 
 -   ### Scope
-    Project divided to Sprints where each aims for a MVP:
+    Due to time constraints and the steep learning curve of Django the project divided to Sprints where each aims for a MVP:
     1. Sprint:
         -   create the properties model
         -   create the employees model
@@ -65,23 +63,23 @@ Other unrealized services to mention | ? | ?
             -   property owner page
         -   request property viewing for tenants
         -   account registration
-        -   user dashboard
         -   manager/employee admin access
         -   property owner page and contact form
         -   tests
 
     2. Sprint:
         -   personalize ui design
+        -   user dashboard
         -   detailed property view
-        -   browse order-by price low-to-high and vicev
+        -   browse order-by price low-to-high and vice versa
         -   amend and cancel viewing
         -   employee appointment schedule
             -   show available time-slots when booking a viewing
             -   employee login
-        -   personal collection board
 
 -   ### Agile Approach
-    -   #### Epics & Tasks:
+    1.   #### Sprint - Epics & Tasks:
+
         1.  Base template:
             -   Navigation
             -   Footer
@@ -97,28 +95,29 @@ Other unrealized services to mention | ? | ?
         1.  Authentication and user registration:
             -   Login
             -   Register
-            -   Register while placing a booking
-        1.   Property owner page:
+        1.  Owner and staff access to admin
+        1.  Property owner page:
             -   book an appointment
             -   B2B info
-            -   freedom theme paralax picrure
+            -   freedom theme parallax picture
             -   informative list of discussion details
     
 -   ### User Stories
+    Find it also in the project [GitHub issues](https://github.com/spanifer/pp4-fullstack/issues)
     -   New user:
         -   As a **new user** I can **arrive on the site** so that **I can have quick access to the main features and comprehensive details of usage**
         -   As a **new user** I can **go through the list of available properties** so that **I can look for a suitable property with details to rent**
         -   As a **new user** I can **contact the agency by filling out a form with my details** so that **I can request a viewing on a selected property**
-        -   As a **new user** I can **create an account or login with an existing one** so that **I can book appointments and review previous bookings**
     -   Registered user:
-        -
+        -   As a **registered user** I can **login with an existing account** so that **I can book appointments**
+    -   Owner/staff user:
+        -   As the **owner** I can **access the admin pages** so that **I can add employees as staff users**
+        -   As the **owner/employee** I can **review and respond to a potential tenant who requested a viewing** so that **we can arrange a meeting and come to an agreement**
+        -   As the **owner** I can **add notes to each client** so that **I can provide a personalized experience for clients and adept for their needs**
 
     -   User stories dropped:
         -   As a **new user** I can **register an account with my details required to book an appointment** so that **I can request a booking without needing to register beforehand**
-
--   ### Flowchart
-
-![](docs/diagrams/)
+        -   As a **registered user** I can **choose to allow the site** to **automatically email me if one of my saved listings has a price change or is no longer available**
 
 -   ### Wireframes
 

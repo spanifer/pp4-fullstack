@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="container">
+    <h2>Booked viewings</h2>
+    {% for viewing in viewings %}
+    <div class="property-card">
+        {{ viewing.property.name }}
+    </div>
+    {% endfor%}
+</section>
+
+{% endblock %}

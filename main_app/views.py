@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views import View
 from django.views.generic import ListView
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Properties, ViewingRequest
 from .forms import ViewingRequestForm
 
@@ -21,6 +21,22 @@ class PropertyBrowser(ListView):
     template_name = 'property-browser.html'
     context_object_name = 'properties'
     paginate_by = 3
+
+
+class UserDashboard(LoginRequiredMixin, ListView):
+    model = ViewingRequest
+    queryset = None
+    template_name = 'user-dashboard.html'
+    context_object_name = 'viewings'
+
+    # def get(self, request, *args, **kwargs):
+    #     self.queryset = self.model.objects.filter(for_user=request.user)
+    #     return super().get(request, *args, **kwargs)
+
+    # django have a steep learning curve
+    def dispatch(self, request, *args, **kwargs):
+        self.queryset = self.model.objects.filter(for_user=request.user)
+        return super().get(request, *args, **kwargs)
 
 
 class Viewing(View):

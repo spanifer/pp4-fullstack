@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views import View
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
@@ -13,7 +12,7 @@ def test_user_logged_in(func):
         request = args[0].request
         if request.user.is_authenticated:
             messages.warning(request, 'You are already logged in.')
-            return redirect(reverse('home'))
+            return redirect('home')
         return func(*args, **kwargs)
     return wrapper
 
@@ -64,7 +63,7 @@ class Register(View):
             obj.user = r_form.instance
             obj.save()
             messages.success(request, self.success_message)
-            return redirect(reverse('login'))
+            return redirect('login')
         else:
             context = {
                 'register_form': r_form,

@@ -95,6 +95,16 @@
     text-align: center;
 }
 
+/* ---------- Footer */
+#social-media-links > a {
+    padding: 0 0 0 2rem;
+    font-size: 180%;
+}
+
+footer a {
+    color: #fafafa;
+}
+
 /* ---------- Media Queries */
 
 /* ---------- Medium */

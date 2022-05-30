@@ -18,16 +18,16 @@
             <div class="nav-wrapper">
                 <a href="{% url 'home' %}" class="brand-logo center">Pro Agents</a>
                 <ul id="nav-mobile" class="hide-on-med-and-down">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'properties' %}">To Rent</a></li>
+                    <li><a href="{% url 'home' %}" {% if active == 'home' %}class="active"{% endif %}>Home</a></li>
+                    <li><a href="{% url 'properties' %}" {% if active == 'properties' %}class="active"{% endif %}>To Rent</a></li>
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
                 <ul class="float-right hide-on-med-and-down">
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}" class="float-right hide-on-med-and-down">Logout</a></li>
                 {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}" {% if active == 'login' %}class="active"{% endif %}>Login</a></li>
+                <li><a href="{% url 'register' %}" {% if active == 'register' %}class="active"{% endif %}>Register</a></li>
                 {% endif %}
                 </ul>
             </div>
@@ -42,11 +42,11 @@
                 </li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}" {% if active == 'login' %}class="active"{% endif %}>Login</a></li>
+                <li><a href="{% url 'register' %}" {% if active == 'register' %}class="active"{% endif %}>Register</a></li>
             {% endif %}
-            <li><a href="{% url 'home' %}">Home page</a></li>
-            <li><a href="{% url 'properties' %}">To Rent</a></li>
+            <li><a href="{% url 'home' %}" {% if active == 'home' %}class="active"{% endif %}>Home page</a></li>
+            <li><a href="{% url 'properties' %}" {% if active == 'properties' %}class="active"{% endif %}>To Rent</a></li>
         </ul>
     </header>
     <main>

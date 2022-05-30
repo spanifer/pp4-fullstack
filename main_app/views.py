@@ -10,6 +10,7 @@ class Home(View):
     def get(self, request):
         context = {
             'page_title': 'Home',
+            'active': request.resolver_match.view_name,
             'hero_title': 'Find the best properties to rent in the area',
         }
         return render(request, 'index.html', context)
@@ -24,6 +25,10 @@ class PropertyBrowser(ListView):
     extra_context = {
         'page_title': 'Browse Properties',
     }
+
+    def get(self, request, *args, **kwargs):
+        self.extra_context.update({'active': request.resolver_match.view_name})
+        return super().get(request, *args, **kwargs)
 
 
 class Viewing(View):

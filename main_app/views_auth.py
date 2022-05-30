@@ -25,8 +25,9 @@ class Login(SuccessMessageMixin, LoginView):
     }
 
     @test_user_logged_in
-    def get(self, *args, **kwargs):
-        return super().get(*args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        self.extra_context.update({'active': request.resolver_match.view_name})
+        return super().get(request, *args, **kwargs)
 
     @test_user_logged_in
     def post(self, *args, **kwargs):
@@ -49,6 +50,7 @@ class Register(View):
             'register_form': r_form,
             'profile_form': p_form,
             'page_title': 'Register',
+            'active': request.resolver_match.view_name,
         }
         return render(request, self.template_name, context)
 

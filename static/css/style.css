@@ -6,6 +6,12 @@
 
 /* ---------- Nav */
 
+.active {
+    font-weight: 600;
+    font-size: large;
+    text-decoration: underline;
+}
+
 /* ---------- Hero img and content */
 
 .default-bg-img {

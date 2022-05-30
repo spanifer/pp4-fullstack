@@ -20,6 +20,9 @@ def test_user_logged_in(func):
 
 class Login(SuccessMessageMixin, LoginView):
     success_message = 'You are logged in'
+    extra_context = {
+        'page_title': 'Login',
+    }
 
     @test_user_logged_in
     def get(self, *args, **kwargs):
@@ -35,7 +38,6 @@ class Logout(SuccessMessageMixin, LogoutView):
 
 
 class Register(View):
-
     success_message = 'You have successfully registered'
     template_name = 'registration/register.html'
 
@@ -46,6 +48,7 @@ class Register(View):
         context = {
             'register_form': r_form,
             'profile_form': p_form,
+            'page_title': 'Register',
         }
         return render(request, self.template_name, context)
 

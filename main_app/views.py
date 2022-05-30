@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views import View
 from django.views.generic import ListView
 from django.contrib import messages
@@ -10,6 +9,7 @@ from .forms import ViewingRequestForm
 class Home(View):
     def get(self, request):
         context = {
+            'page_title': 'Home',
             'hero_title': 'Find the best properties to rent in the area',
         }
         return render(request, 'index.html', context)
@@ -21,6 +21,9 @@ class PropertyBrowser(ListView):
     template_name = 'property-browser.html'
     context_object_name = 'properties'
     paginate_by = 3
+    extra_context = {
+        'page_title': 'Browse Properties',
+    }
 
 
 class Viewing(View):
@@ -50,6 +53,7 @@ class Viewing(View):
         context = {
             'property': _property,
             'form': form,
+            'page_title': 'Request Viewing',
         }
         return render(request, self.template_name, context)
 

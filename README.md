@@ -51,7 +51,7 @@ Add notes to clients | 4 | 3
 Search by location | 4 | 1
 Zoopla API integration | 1 | 1
 Other unrealized services to mention | ? | ?
-**Total** | 68 | 66
+**Total** | 74 | 67
 
 -   ### Scope
     Due to time constraints and the steep learning curve of Django the project divided to Sprints where each aims for a MVP:
@@ -113,7 +113,7 @@ Other unrealized services to mention | ? | ?
     -   Owner/staff user:
         -   As the **owner** I can **access the admin pages** so that **I can add employees as staff users**
         -   As the **owner/employee** I can **review and respond to a potential tenant who requested a viewing** so that **we can arrange a meeting and come to an agreement**
-        -   As the **owner** I can **add notes to each client** so that **I can provide a personalized experience for clients and adept for their needs**
+        -   As the **owner/employee** I can **add notes to each client** so that **I can provide a personalized experience for clients and adept for their needs**
 
     -   User stories dropped:
         -   As a **new user** I can **register an account with my details required to book an appointment** so that **I can request a booking without needing to register beforehand**
@@ -127,7 +127,7 @@ Other unrealized services to mention | ? | ?
 
     [Property browser](docs/wireframes/PropertyBrowser.small.png):
 
-    ![](docs/wireframes/Home.extra-s.png)
+    ![](docs/wireframes/PropertyBrowser.extra-s.png)
 
 -   ### Data Model
 
@@ -210,6 +210,7 @@ The project was deployed on [Heroku](https://www.heroku.com/) and static and med
 
 ### Code
 - ~~to enable user authentication with email address instead of username I have followed [this article](https://www.fomfus.com/articles/how-to-use-email-as-username-for-django-authentication-removing-the-username/)~~
+- I have reviewed [this tutorial](https://simpleisbetterthancomplex.com/tutorial/2016/11/23/how-to-add-user-profile-to-django-admin.html) to add UserProfile to the User form in the admin site
 
 ### Acknowledgements
 

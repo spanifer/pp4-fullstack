@@ -6,9 +6,11 @@
         <form method="POST">
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class="btn">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </button>
+            <div class="center">
+                <button type="submit" class="btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </div>
         </form>
     </section>
 

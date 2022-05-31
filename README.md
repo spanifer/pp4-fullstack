@@ -2,7 +2,7 @@
 
 [View the live project here.](https://pro-letting.herokuapp.com/)
 
-![Responsive Design from http://ami.responsivedesign.is/]()
+![Responsive Design from https://techsini.com/multi-mockup/index.php](/docs/mocup.png)
 
 # Table of content
 
@@ -81,20 +81,20 @@ Other unrealized services to mention | ? | ?
     1.   #### Sprint - Epics & Tasks:
 
         1.  Base template:
-            -   Navigation
-            -   Footer
+            -   Navigation ✔
+            -   Footer ✔
         1.  Landing page:
-            -   Hero img and quick access the browse properties
-            -   Welcome, detailed navigation buttons
-            -   About and contact details
-            -   Renting flow diagram - fetch block to lazy load this content?
+            -   Hero img and quick access the browse properties ✔
+            -   Welcome, detailed navigation buttons ✔
+            -   About and contact details ✔
+            -   Renting flow diagram - fetch block to lazy load this content? ✔
         1.  Property browser page:
-            -   display the available properties
-            -   book viewing button (and request further info on property for *this Sprint*)
-            -   property-picture, price and details card
+            -   display the available properties ✔
+            -   book viewing button (and request further info on property for *this Sprint*) ✔
+            -   property-picture, price and details card ✔
         1.  Authentication and user registration:
-            -   Login
-            -   Register
+            -   Login ✔
+            -   Register ✔
         1.  Owner and staff access to admin
         1.  Property owner page:
             -   book an appointment
@@ -110,10 +110,10 @@ Other unrealized services to mention | ? | ?
         -   As a **new user** I can **contact the agency by filling out a form with my details** so that **I can request a viewing on a selected property**
     -   Registered user:
         -   As a **registered user** I can **login with an existing account** so that **I can book appointments**
-    -   Owner/staff user:
+    -   ~~Owner/staff user:~~
         -   As the **owner** I can **access the admin pages** so that **I can add employees as staff users**
-        -   As the **owner/employee** I can **review and respond to a potential tenant who requested a viewing** so that **we can arrange a meeting and come to an agreement**
-        -   As the **owner/employee** I can **add notes to each client** so that **I can provide a personalized experience for clients and adept for their needs**
+        -   ~~As the **owner/employee** I can **review and respond to a potential tenant who requested a viewing** so that **we can arrange a meeting and come to an agreement**~~
+        -   ~~As the **owner/employee** I can **add notes to each client** so that **I can provide a personalized experience for clients and adept for their needs**~~
 
     -   User stories dropped:
         -   As a **new user** I can **register an account with my details required to book an appointment** so that **I can request a booking without needing to register beforehand**
@@ -134,14 +134,33 @@ Other unrealized services to mention | ? | ?
     ![](docs/diagrams/db-schema.svg)
 
 -   ### Surface
-
-![](docs/diagrams/)
+Due to time constraints the color scheme and the typography are left with the default materialcss settings.
 
 ## Features
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
+-   Landing page:
+-   ![Landing page](/docs/features/Pro%20Agents%20-%20Home.png)
+-   Side navigation for medium and small screens
+-   ![Side nav](/docs/features/Side%20Nav.png)
+-   Action messages:
+-   ![Messages](/docs/features/Pro%20Agents%20-%20Messages.png)
+-   Browse available properties, and pagination
+-   User authentication and registration
+-   On admin sites currently only for superuser are:
+    -   able to access and search for any viewing request, by user email, first name and last name
+    -   able to add and review property listings
 
 ### Future Features
-
+-   Phone number validation
+-   Staff group with permissions to access admin
+-   Property owner page, and contact form
+-   Sending emails to clients straight from the admin ViewingRequest
+-   Send emails to clients automatically if 
+-   Detailed property view to replace current viewing-request page
+-   User dashboard to amend bookings or access current propertie(s)
+-   Dedicated employee dashboard
+-   Allow property search by area
+-   ... And much more
 
 ## Technologies Used
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
@@ -157,23 +176,29 @@ Other unrealized services to mention | ? | ?
 1. [Django](https://www.djangoproject.com/)
 1. [Materialize Css](https://materializecss.com/)
 1. [draw.io](https://www.diagrams.net/)
+1. [FontAwsome](https://fontawesome.com/)
 1. [PostgreSQL](https://www.postgresql.org/)
 
 ## Testing
 <a href="#table-of-content">Go back <span style="font-size: 1.3em">🔝</span></a>
 
-### Validators Testing
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
--   [Python](http://pep8online.com/)
-
 ### Testing User Stories
+-   New user: 
+    -   Arriving on the site new users have quick access to look through the available properties. Scrolling further down new users have access for a comprehensive introduction of the letting process the site provides, and can read about the company. In the footer section, users can find contact details for the site owner.
+    -   New users are required to register an account to limit the amount of viewing request
 
-### Further Testing
+-   Registered user:
+    -   Can log in to book viewing appointments.
+
+-   Owner/employee:
+    -   Owner as a superuser can access the admin page
+    -   Staff access is work in progress
 
 ### Known Bugs
 
 -   message on logout not sent / received
+-   pagination container element is not centered on small and medium screens
+-   property images not showing
 
 ### Other mentions
 
@@ -215,3 +240,4 @@ The project was deployed on [Heroku](https://www.heroku.com/) and static and med
 ### Acknowledgements
 
 -   README.md structure inspired by several Code Institute's samples
+-   The [Django Documentation](https://docs.djangoproject.com/en/3.2/)

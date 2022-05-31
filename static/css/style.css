@@ -14,15 +14,11 @@
 
 /* ---------- Hero img and content */
 
-.default-bg-img {
-    background: url(https://images.unsplash.com/photo-1516139008210-96e45dccd83b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880);
+.hero {
+    background: url(https://res.cloudinary.com/ds7mprxx1/image/upload/v1653986320/main_tkjv14.jpg);
     background-size: cover;
     background-position: center;
     background-position-y: bottom;
-    width: 100%;
-}
-
-.hero {
     width: 100%;
     height: calc(80vh - 25px);
 }
@@ -33,6 +29,7 @@
 
 .hero h2 {
     margin-top: 0;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* ---------- Welcome Info */
@@ -43,10 +40,6 @@
     margin: 1.5rem 0;
     line-height: normal;
 }
-
-/* .nfo-btn-title {
-
-} */
 
 .nfo-btn-info {
     font-size: 0.7em;

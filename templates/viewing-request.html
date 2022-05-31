@@ -2,9 +2,13 @@
 {% block content %}
 
 <section class="container">
-    <img src="{{ property.main_img.url }}" style="width:100%">
-    Fill out the form to request a viewing for {{ property }}
-    <form method="POST">
+    {% if not property.main_image %}
+    <img src="https://res.cloudinary.com/ds7mprxx1/image/upload/v1653986112/basil-james-iC4BsZQaREg-unsplash_r6wbdj.jpg" alt="Missing property image">
+    {% else %}
+    <img src="{{ property.main_img.url }}" alt="Property image">
+    {% endif %}
+    Let us know when you would like to book a viewing for {{ property }}
+    <form method="POST" class="center">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn-large">

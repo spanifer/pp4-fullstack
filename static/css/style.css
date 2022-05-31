@@ -4,6 +4,10 @@
     float: right;
 }
 
+img {
+    width: 100%;
+}
+
 /* ---------- Nav */
 
 .active {

@@ -7,9 +7,16 @@
         <div class="property-card col s12 m10 offset-m1 l4">
             <div class="card">
                 <div class="card-image default-bg-img">
-                    <img src="{{ property.main_img.url }}">
+                    {% if not property.main_image %}
+                    <img src="https://res.cloudinary.com/ds7mprxx1/image/upload/v1653986112/basil-james-iC4BsZQaREg-unsplash_r6wbdj.jpg" alt="Missing property image">
+                    {% else %}
+                    <img src="{{ property.main_img.url }}" alt="Property image">
+                    {% endif %}
                 </div>
                 <div class="card-content">
+                    <h3 class="red-text accent-2">
+                        £{{ property.price }}pcm
+                    </h3>
                     <h4 class="black-text">
                         {{ property.name }}
                     </h4>

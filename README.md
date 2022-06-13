@@ -198,7 +198,6 @@ Due to time constraints the color scheme and the typography are left with the de
 
 -   message on logout not sent / received
 -   pagination container element is not centered on small and medium screens
--   property images not showing
 
 ### Other mentions
 

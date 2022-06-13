@@ -7,7 +7,7 @@
         <div class="property-card col s12 m10 offset-m1 l4">
             <div class="card">
                 <div class="card-image default-bg-img">
-                    {% if not property.main_image %}
+                    {% if property.main_img.url == None %}
                     <img src="https://res.cloudinary.com/ds7mprxx1/image/upload/v1653986112/basil-james-iC4BsZQaREg-unsplash_r6wbdj.jpg" alt="Missing property image">
                     {% else %}
                     <img src="{{ property.main_img.url }}" alt="Property image">
